@@ -1,5 +1,5 @@
 const newnote = require('express').Router();
-const uuid = reqruire('../helpers/uuid');
+const uuid = require('../helpers/uuid');
 const { readAndAppend, readFromFile } = require('../helpers/fsUtils');
 
 newnote.get ('/', (req, res) => {
