@@ -1,6 +1,6 @@
 const newnote = require('express').Router();
 const uuid = require('../helpers/uuid');
-const { readAndAppend, readFromFile } = require('./helpers/fsUtils');
+const { readAndAppend, readFromFile } = require('../helpers/fsUtils');
 
 newnote.get ('/', (req, res) => {
     console.info(`${req.method} request received for new note`);
