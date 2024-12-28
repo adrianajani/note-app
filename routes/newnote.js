@@ -1,20 +1,20 @@
-const newnote = require('express').Router();
+const note = require('express').Router();
 const uuid = require('../helpers/uuid');
 const { readAndAppend, readFromFile } = require('../helpers/fsUtils');
 
-newnote.get ('/', (req, res) => {
+note.get ('/', (req, res) => {
     console.info(`${req.method} request received for new note`);
 
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
-newnote.post('/', (req, res) => {
+note.post('/', (req, res) => {
     console.info(`${req.method} request received to add a note`);
 
     const { title, text } = req.body;
 
     if (title && text) {
-        const newNote = {
+        const Note = {
             title,
             text,
             note_id: uuid(),
@@ -27,4 +27,4 @@ newnote.post('/', (req, res) => {
     }
 }   );  
 
-module.exports = newnote;
+module.exports = note;
